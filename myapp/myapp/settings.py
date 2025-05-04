@@ -51,7 +51,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173',  # Localhost frontend (e.g., React/Vue/Vite)
+    'http://127.0.0.1:8000'
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 
