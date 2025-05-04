@@ -4,7 +4,7 @@
 # Ignore SQLite database files
 *.sqlite3
 
-ptpi/__pycache__
+pathlogy/__pycache__
 
 # Ignore Django migrations except __init__.py
 **/migrations/*.py
