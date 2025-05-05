@@ -100,18 +100,11 @@ class PackageViewSet(viewsets.ModelViewSet):
         return Response(serializers.data, status=status.HTTP_201_CREATED)
     
     def update(self, request, *args, **kwargs):
-        user = request.user
-        instance = self.get_object()
-        data = request.data.copy()
-        if not user.is_staff and instance.created_by.id !=user.id:
-            return Response({"error":"You are not allowed to updated this objects."},
-                            status=status.HTTP_403_FORBIDDEN)
-        if 'created_by' in data:
-            del data['created_by']
-            serializers = self.get_serializer(instance, data=data, partial=True)
-            serializers.is_valid(raise_exception=True)
-            serializers.save()
-        return Response(serializers.data, status=status.HTTP_200_OK)
+        super().update(request, *args,**kwargs)
+        return Response(
+            {"message":"Package updated successfully"},
+            status=status.HTTP_200_OK
+        )
     
     def destroy(self, request, *args, **kwargs):
         super().destroy(request, *args, **kwargs)
