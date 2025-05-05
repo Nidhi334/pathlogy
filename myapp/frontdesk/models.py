@@ -22,11 +22,11 @@ class Doctor(models.Model):
     ipList = models.TextField(blank=True, null=True)  # Assuming this is a list of IPs as text
     commission = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     bdo = models.CharField(max_length=255, blank=True, null=True)
-    altPhone = models.CharField(max_length=15, blank=True, null=True)
-    email = models.EmailField(blank=True, null=True)
+    altPhone = models.CharField(max_length=15)
+    email = models.EmailField()
     workArea = models.CharField(max_length=255, blank=True, null=True)
-    degree = models.CharField(max_length=255, blank=True, null=True)
-    regNumber = models.CharField(max_length=255, blank=True, null=True, unique=True)
+    degree = models.CharField(max_length=255)
+    regNumber = models.CharField(max_length=255,unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
